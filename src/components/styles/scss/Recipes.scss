@@ -1,0 +1,43 @@
+@import "./variables";
+
+#recipe-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(#{$card-width} + 2 * #{$top-recipe-margin});
+}
+
+#slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+#slider-content {
+  display: flex;
+  width: fit-content;
+  transition: transform 0.5s;
+}
+
+#slider-radio {
+  margin: 1rem;
+}
+
+#recipe-buttons {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  justify-content: space-between;
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  //   button:nth-of-type(1) {
+  //     background-color: red;
+  //   }
+}

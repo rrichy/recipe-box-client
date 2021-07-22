@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Zen+Loop&display=swap");
+
+@import "./variables";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $white;
+  font-family: "Zen Loop", cursive;
+}
