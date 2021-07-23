@@ -2,7 +2,7 @@
 
 .recipe {
   width: $card-width;
-  margin: 0 $top-recipe-margin;
+  margin: 5px $top-recipe-margin;
   display: grid;
   grid-template-rows: 260px 3rem 3rem 2rem;
   background-color: $ultra-red;
@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: center;
   font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  box-shadow: 0 0 6px 1px black;
 
   img {
     width: 100%;
@@ -19,14 +21,9 @@
     object-position: center;
   }
 
-  figcaption,
+  h3,
   p {
     margin: 0 0.8rem;
-  }
-
-  figcaption {
-    font-size: 1.17em;
-    font-weight: bold;
   }
 
   p {
@@ -42,5 +39,44 @@
 
   p:nth-of-type(2) {
     text-align: right;
+  }
+}
+/* $usafa-blue: #26547cff;
+$persian-green: #00a896ff;
+$mountain-meadow: #02c39aff;
+$ultra-red: #ff6978ff;
+$white: #fcfcfcff; */
+.recipe-listed {
+  width: $recipe-listed-width;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  margin: 0.2rem;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  background-color: $ultra-red;
+  text-decoration: none;
+
+  img {
+    width: $listed-img-dim;
+    height: $listed-img-dim;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  p:nth-of-type(1) {
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 122px;
+  }
+
+  p:nth-of-type(2) {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 300;
   }
 }

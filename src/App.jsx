@@ -1,6 +1,6 @@
 import React from "react";
 
-import Recipes from "./components/Recipes/Recipes";
+import Recipes from "./components/Recipes";
 
 import "./components/styles/css/index.css";
 
