@@ -1,8 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Zen+Loop&display=swap");
+/* $usafa-blue: #26547cff;
+$persian-green: #00a896ff;
+$mountain-meadow: #02c39aff;
+$ultra-red: #ff6978ff;
+$white: #fcfcfcff;
+$black-text: #141414; */
+* {
+  color: #141414;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: #fcfcfcff;
   font-family: "Zen Loop", cursive;
+}
+
+h1 {
+  background-color: #26547cff;
+  margin: 0;
+  text-align: center;
+  height: 6rem;
+  font-size: 4rem;
+  color: linen;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=index.css.map */

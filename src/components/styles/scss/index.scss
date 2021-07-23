@@ -2,9 +2,32 @@
 
 @import "./variables";
 
+/* $usafa-blue: #26547cff;
+$persian-green: #00a896ff;
+$mountain-meadow: #02c39aff;
+$ultra-red: #ff6978ff;
+$white: #fcfcfcff;
+$black-text: #141414; */
+
+* {
+  color: $black-text;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: $white;
   font-family: "Zen Loop", cursive;
+}
+
+h1 {
+  background-color: $usafa-blue;
+  margin: 0;
+  text-align: center;
+  height: 6rem;
+  font-size: 4rem;
+  color: linen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

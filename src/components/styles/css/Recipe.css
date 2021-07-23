@@ -1,6 +1,6 @@
 .recipe {
   width: 250px;
-  margin: 0 3rem;
+  margin: 5px 3rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 260px 3rem 3rem 2rem;
@@ -15,6 +15,9 @@
       -ms-flex-pack: center;
           justify-content: center;
   font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 6px 1px black;
+          box-shadow: 0 0 6px 1px black;
 }
 
 .recipe img {
@@ -26,14 +29,9 @@
      object-position: center;
 }
 
-.recipe figcaption,
+.recipe h3,
 .recipe p {
   margin: 0 0.8rem;
-}
-
-.recipe figcaption {
-  font-size: 1.17em;
-  font-weight: bold;
 }
 
 .recipe p {
@@ -49,5 +47,55 @@
 
 .recipe p:nth-of-type(2) {
   text-align: right;
+}
+
+/* $usafa-blue: #26547cff;
+$persian-green: #00a896ff;
+$mountain-meadow: #02c39aff;
+$ultra-red: #ff6978ff;
+$white: #fcfcfcff; */
+.recipe-listed {
+  width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  margin: 0.2rem;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  background-color: #ff6978ff;
+  text-decoration: none;
+}
+
+.recipe-listed img {
+  width: 45px;
+  height: 45px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.recipe-listed p:nth-of-type(1) {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 122px;
+}
+
+.recipe-listed p:nth-of-type(2) {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
 }
 /*# sourceMappingURL=Recipe.css.map */
