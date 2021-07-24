@@ -1,10 +1,17 @@
 import React, { Component, useState } from "react";
+import { connect } from "react-redux";
 import FileBase from "react-file-base64";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
+import { postRecipe } from "../../actions/box";
 import "../styles/css/AddRecipe.css";
+
+// const mapStateToProps = (state) => ({})
+const mapDispatchToProps = (dispatch) => ({
+  post: (recipe) => dispatch(postRecipe(recipe)),
+});
 
 class AddRecipe extends Component {
   constructor(props) {
@@ -14,8 +21,7 @@ class AddRecipe extends Component {
       title: "",
       description: "",
       image: "",
-      create: "",
-      tags: "",
+      creator: "",
       ingredients: [{ quantity: "", unit: "", ingredient: "" }],
       directions: [{ direction: "" }],
     };
@@ -58,13 +64,18 @@ class AddRecipe extends Component {
   };
 
   addDirection = () => {
-    const directions = [...directions, { direction: "" }];
+    const directions = [...this.state.directions, { direction: "" }];
     this.setState({ directions });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.post(this.state);
+    this.handleClear();
+    // console.log("local state");
+    // console.log(this.state);
+    // console.log("redux state");
+    // console.log(this.props);
   };
 
   handleClear = () => {
@@ -72,16 +83,14 @@ class AddRecipe extends Component {
       title: "",
       description: "",
       image: "",
-      create: "",
-      tags: "",
+      creator: "",
       ingredients: [{ quantity: "", unit: "", ingredient: "" }],
       directions: [{ direction: "" }],
     });
   };
 
   render() {
-    const { title, description, creator, tags, ingredients, directions } =
-      this.state;
+    const { title, description, creator, ingredients, directions } = this.state;
 
     return (
       <div id="add-recipe">
@@ -105,24 +114,20 @@ class AddRecipe extends Component {
             value={description}
             onChange={(e) => this.setState({ description: e.target.value })}
           />
-          <FileBase
-            type="file"
-            multiple={false}
-            onDone={({ base64 }) => this.setState({ image: base64 })}
-          />
+          <fieldset name="image" id="image">
+            <label>Choose an image:</label>
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) => this.setState({ image: base64 })}
+            />
+          </fieldset>
           <input
             type="text"
             name="creator"
             placeholder="Creator"
             value={creator}
             onChange={(e) => this.setState({ creator: e.target.value })}
-          />
-          <input
-            type="text"
-            name="tags"
-            placeholder="Tags"
-            value={tags}
-            onChange={(e) => this.setState({ tags: e.target.value })}
           />
           <fieldset name="ingredients" id="ingredients">
             <legend>Ingredients</legend>
@@ -209,4 +214,4 @@ const AddDirection = ({ direction, change, index, remove }) => {
   );
 };
 
-export default AddRecipe;
+export default connect(null, mapDispatchToProps)(AddRecipe);

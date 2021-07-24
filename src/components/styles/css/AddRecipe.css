@@ -101,11 +101,11 @@ $listed-img-dim: 45px;
   margin: 0;
 }
 
-#add-recipe fieldset input:first-child {
+#add-recipe fieldset.ingredient input:first-child {
   width: 25px;
 }
 
-#add-recipe fieldset input:nth-child(2) {
+#add-recipe fieldset.ingredient input:nth-child(2) {
   width: 35px;
 }
 
@@ -130,9 +130,23 @@ $listed-img-dim: 45px;
   max-width: 495px;
 }
 
+#add-recipe fieldset#image {
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.9rem;
+}
+
 #add-recipe input {
   width: 100%;
   line-height: 1.5rem;
+  margin: 0.1rem 0;
+}
+
+#add-recipe button {
+  width: 80px;
+  height: 1.5rem;
   margin: 0.1rem 0;
 }
 

@@ -81,7 +81,7 @@ $white: #fcfcfcff; */
   background-color: #26547cff;
   position: absolute;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   left: 92%;
   bottom: 0%;
   -webkit-animation: showRecipes 0.3s;
