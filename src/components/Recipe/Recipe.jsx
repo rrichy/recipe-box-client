@@ -6,15 +6,10 @@ import { faThumbsUp as inactiveThumb } from "@fortawesome/free-regular-svg-icons
 import "../styles/css/Recipe.css";
 import defaultImg from "../../images/default.jpg";
 
-export const Recipe = ({
-  image,
-  title,
-  description,
-  likeCount = 0,
-  type = "recipe",
-}) => {
+export const Recipe = ({ data }) => {
+  const { image, title, description, likeCount = 0, type = "" } = data;
   return (
-    <a href="#" className={type}>
+    <a href="#" className={"recipe " + type}>
       <img src={image || defaultImg} alt={title || "Alt Title"} />
       <h3>{title || "This is a Title"}</h3>
       <p>
@@ -30,9 +25,10 @@ export const Recipe = ({
   );
 };
 
-export const RecipeListed = ({ image, title, likeCount = 0 }) => {
+export const RecipeListed = ({ data, hover }) => {
+  const { image, title, likeCount = 0 } = data;
   return (
-    <a href="#" className="recipe-listed">
+    <a href="#" className="recipe-listed" onMouseEnter={hover}>
       <img src={image || defaultImg} alt={title || "Alt Title"} />
       <p>{title || "This is a Title"}</p>
       <p>

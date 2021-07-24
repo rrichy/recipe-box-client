@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,21 +8,33 @@ import AddRecipe from "./Form/AddRecipe";
 import "./styles/css/Recipes.css";
 
 const Recipes = () => {
+  const box = useSelector((state) => state.box);
   const [showRecipe, changeRecipe] = useState(0);
-  const [showOthers, toggleOthers] = useState(false);
-  const [showAdd, toggleAdd] = useState(true); /* defaults into false */
+  const [showOthers, toggleOthers] = useState(false); /* defaults into false */
+  const [showAdd, toggleAdd] = useState(false); /* defaults into false */
+  const [hoverState, changeHoverItems] = useState({
+    title: "hello",
+    image: "",
+    description: "",
+    likeCount: 0,
+    type: "recipe--floating",
+  });
+
+  console.log("list of recipes");
+  console.log(box);
+
+  const sliderContent = box
+    .sort((a, b) => b.likeCount - a.likeCount)
+    .slice(0, 5);
 
   return (
     <div id="recipe-selector">
       <h2>Top Recipes</h2>
       <div id="slider">
         <div id="slider-content">
-          {/* edit this to top recipes taken from the DB */}
-          <Recipe />
-          <Recipe />
-          <Recipe />
-          <Recipe />
-          <Recipe />
+          {sliderContent.map((recipe) => (
+            <Recipe data={recipe} />
+          ))}
         </div>
       </div>
       <div id="slider-radio">
@@ -57,20 +70,24 @@ const Recipes = () => {
       </div>
       {showOthers && (
         <div id="other-recipes">
-          {/* edit this to all recipes taken from the DB */}
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
-          <RecipeListed />
+          {box.map((recipe) => (
+            <RecipeListed
+              data={recipe}
+              hover={() =>
+                changeHoverItems({
+                  ...hoverState,
+                  title: recipe.title,
+                  image: recipe.image,
+                  description: recipe.description,
+                  likeCount: recipe.likeCount,
+                })
+              }
+            />
+          ))}
         </div>
       )}
       {showAdd && <AddRecipe closeButton={toggleAdd} />}
+      {showOthers && <Recipe data={hoverState} />}
     </div>
   );
 };

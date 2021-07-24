@@ -16,6 +16,10 @@ body {
   font-family: "Zen Loop", cursive;
 }
 
+#root {
+  overflow: hidden;
+}
+
 h1 {
   background-color: #26547cff;
   margin: 0;

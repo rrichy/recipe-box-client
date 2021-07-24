@@ -49,6 +49,36 @@
   text-align: right;
 }
 
+.recipe--floating {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  -webkit-animation: showHover 0.3s;
+          animation: showHover 0.3s;
+}
+
+@-webkit-keyframes showHover {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes showHover {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 /* $usafa-blue: #26547cff;
 $persian-green: #00a896ff;
 $mountain-meadow: #02c39aff;
@@ -83,6 +113,10 @@ $white: #fcfcfcff; */
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.recipe-listed p {
+  margin: 0;
 }
 
 .recipe-listed p:nth-of-type(1) {

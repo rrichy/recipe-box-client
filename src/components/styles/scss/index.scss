@@ -20,6 +20,10 @@ body {
   font-family: "Zen Loop", cursive;
 }
 
+#root {
+  overflow: hidden;
+}
+
 h1 {
   background-color: $usafa-blue;
   margin: 0;

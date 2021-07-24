@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
+import { getBox } from "./actions/box";
 import Recipes from "./components/Recipes";
 
 import "./components/styles/css/index.css";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBox());
+  }, [dispatch]);
+
   return (
     <>
       <h1>Recipe Box</h1>
