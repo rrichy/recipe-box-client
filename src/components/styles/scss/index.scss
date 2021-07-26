@@ -24,6 +24,12 @@ body {
   overflow: hidden;
 }
 
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   background-color: $usafa-blue;
   margin: 0;
