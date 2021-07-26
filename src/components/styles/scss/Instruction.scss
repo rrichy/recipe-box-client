@@ -1,0 +1,70 @@
+@import "./variables";
+
+#instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //   grid-template-areas:
+  //     "image image"
+  //     "title like"
+  //     "creator creator"
+  //     "description description"
+  //     "instruction instruction";
+
+  max-width: 400px;
+
+  img {
+    //     grid-area: image;
+    width: 100%;
+    min-width: 335px;
+    height: 187px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  h2 {
+    //     grid-area: title;
+  }
+
+  span,
+  li {
+    font-family: "Roboto", sans-serif;
+  }
+
+  span:nth-of-type(1) {
+    grid-area: like;
+    //     background-color: blue;
+  }
+
+  span:nth-of-type(2) {
+    grid-area: creator;
+  }
+
+  span:nth-of-type(3) {
+    grid-area: description;
+  }
+
+  div {
+    width: 100%;
+  }
+
+  div:nth-of-type(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div:nth-of-type(2) {
+    grid-area: instruction;
+    display: grid;
+    grid-template-areas: "ingredients directions";
+  }
+
+  section:nth-of-type(1) {
+    grid-area: ingredients;
+  }
+  section:nth-of-type(2) {
+    grid-area: directions;
+  }
+}

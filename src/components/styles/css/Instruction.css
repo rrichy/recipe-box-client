@@ -1,0 +1,79 @@
+#instructions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 400px;
+}
+
+#instructions img {
+  width: 100%;
+  min-width: 335px;
+  height: 187px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+#instructions span,
+#instructions li {
+  font-family: "Roboto", sans-serif;
+}
+
+#instructions span:nth-of-type(1) {
+  grid-area: like;
+}
+
+#instructions span:nth-of-type(2) {
+  grid-area: creator;
+}
+
+#instructions span:nth-of-type(3) {
+  grid-area: description;
+}
+
+#instructions div {
+  width: 100%;
+}
+
+#instructions div:nth-of-type(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#instructions div:nth-of-type(2) {
+  grid-area: instruction;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "ingredients directions";
+}
+
+#instructions section:nth-of-type(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: ingredients;
+}
+
+#instructions section:nth-of-type(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: directions;
+}
+/*# sourceMappingURL=Instruction.css.map */

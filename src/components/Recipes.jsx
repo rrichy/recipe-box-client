@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { Recipe, RecipeListed } from "./Recipe/Recipe";
 import AddRecipe from "./Form/AddRecipe";
+import { updateInstruction } from "../actions/instruction";
 import "./styles/css/Recipes.css";
 
 const Recipes = () => {
   const box = useSelector((state) => state.box);
+  const dispatch = useDispatch();
   const [showRecipe, changeRecipe] = useState(0);
   const [showOthers, toggleOthers] = useState(false); /* defaults into false */
   const [showAdd, toggleAdd] = useState(false); /* defaults into false */
   const [hoverState, changeHoverItems] = useState({
-    title: "hello",
+    title: "",
     image: "",
     description: "",
     likeCount: 0,
