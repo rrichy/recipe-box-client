@@ -85,6 +85,14 @@ $listed-img-dim: 45px;
   width: 100%;
 }
 
+#add-recipe fieldset#directions, #add-recipe fieldset#ingredients {
+  max-height: 200px;
+  overflow-y: auto;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
 #add-recipe fieldset legend {
   font-size: 0.9rem;
 }

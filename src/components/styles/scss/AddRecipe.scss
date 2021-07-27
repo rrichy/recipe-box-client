@@ -57,6 +57,13 @@ $listed-img-dim: 45px;
     justify-content: center;
     width: 100%;
 
+    &#directions,
+    &#ingredients {
+      max-height: 200px;
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+
     legend {
       font-size: 0.9rem;
     }
