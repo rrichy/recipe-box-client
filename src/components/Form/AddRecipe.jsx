@@ -71,7 +71,7 @@ class AddRecipe extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.post(this.state);
-    this.handleClear();
+    // this.handleClear();
     // console.log("local state");
     // console.log(this.state);
     // console.log("redux state");
