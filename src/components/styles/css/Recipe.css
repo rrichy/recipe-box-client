@@ -1,6 +1,6 @@
 .recipe {
   width: 250px;
-  margin: 5px 3rem;
+  margin: 5px 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 260px 3rem 3rem 2rem;
@@ -85,7 +85,7 @@ $mountain-meadow: #02c39aff;
 $ultra-red: #ff6978ff;
 $white: #fcfcfcff; */
 .recipe-listed {
-  width: 200px;
+  width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -98,10 +98,7 @@ $white: #fcfcfcff; */
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-family: "Roboto", sans-serif;
-  margin: 0.2rem;
   padding: 0.3rem;
-  border-radius: 0.5rem;
   background-color: #ff6978ff;
   text-decoration: none;
 }
@@ -124,7 +121,6 @@ $white: #fcfcfcff; */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 122px;
 }
 
 .recipe-listed p:nth-of-type(2) {

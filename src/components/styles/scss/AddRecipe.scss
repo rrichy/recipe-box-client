@@ -14,34 +14,48 @@ $recipe-listed-width: 200px;
 $listed-img-dim: 45px;
  */
 
-#add-recipe {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #1414144d;
-  font-family: "Roboto", sans-serif;
+.add-recipe {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  // width: 100vw;
+  // height: 100vh;
+  // background-color: #1414144d;
+  // font-family: "Roboto", sans-serif;
+
+  & > a {
+    display: block;
+    background-color: $persian-green;
+    color: $white;
+    margin: 0;
+    text-align: center;
+    line-height: 2.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     justify-content: center;
-    background-color: $persian-green;
+    background-color: chartreuse; /* change this */
     width: 100%;
-    max-width: 600px;
-    min-width: 325px;
-    margin: 12px;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
     position: relative;
-    box-shadow: 0px 0px 15px black;
+    height: 0;
+    transition: height $change-page-transition;
+  }
+
+  &--active {
+    form {
+      height: 500px; /* change this */
+    }
   }
 
   h2 {

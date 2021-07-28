@@ -1,0 +1,76 @@
+@import "./variables";
+
+h1 {
+  background-color: $usafa-blue;
+  margin: 0;
+  text-align: center;
+  line-height: 4rem;
+  color: $white;
+}
+
+.main {
+  & > a {
+    display: block;
+    background-color: $usafa-blue;
+    color: $white;
+    margin: 0;
+    text-align: center;
+    line-height: 4rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  &--active {
+    .top-recipes {
+      height: 500px; /* Change this */
+    }
+  }
+}
+
+.top-recipes {
+  position: relative;
+  height: 0;
+  background-color: cadetblue;
+  overflow: hidden;
+  transition: height $change-page-transition;
+  width: 100%;
+
+  &__container {
+    position: absolute;
+    display: flex;
+    column-gap: 250px;
+    width: fit-content;
+    left: 50%;
+    top: 50%;
+    transition: transform 0.5s;
+  }
+
+  &__arrow-nav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(-50%, -50%);
+  }
+
+  &__buttons {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+}
+
+.fa-angle-left,
+.fa-angle-right {
+  font-size: 5rem;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin: 2px;
+}

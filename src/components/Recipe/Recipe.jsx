@@ -4,6 +4,7 @@ import { faThumbsUp as activeThumb } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp as inactiveThumb } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch } from "react-redux";
 
+import { updateTooltipDesc } from "../../actions/tooltip";
 import { updateInstruction } from "../../actions/instruction";
 import "../styles/css/Recipe.css";
 import defaultImg from "../../images/default.jpg";
@@ -32,14 +33,15 @@ export const Recipe = ({ data }) => {
   );
 };
 
-export const RecipeListed = ({ data, hover }) => {
-  const { image, title, likeCount = 0 } = data;
+export const RecipeListed = ({ data }) => {
+  const { image, title, likeCount = 0, description } = data;
   const dispatch = useDispatch();
   return (
     <a
       href="#"
       className="recipe-listed"
-      onMouseEnter={hover}
+      onMouseEnter={() => dispatch(updateTooltipDesc(description))}
+      onMouseLeave={() => dispatch(updateTooltipDesc(""))}
       onClick={() => dispatch(updateInstruction(data))}
     >
       <img src={image || defaultImg} alt={title || "Alt Title"} />

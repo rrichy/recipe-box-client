@@ -1,0 +1,87 @@
+h1 {
+  background-color: #26547cff;
+  margin: 0;
+  text-align: center;
+  line-height: 4rem;
+  color: #fcfcfcff;
+}
+
+.main > a {
+  display: block;
+  background-color: #26547cff;
+  color: #fcfcfcff;
+  margin: 0;
+  text-align: center;
+  line-height: 4rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.main--active .top-recipes {
+  height: 500px;
+  /* Change this */
+}
+
+.top-recipes {
+  position: relative;
+  height: 0;
+  background-color: cadetblue;
+  overflow: hidden;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  width: 100%;
+}
+
+.top-recipes__container {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 250px;
+          column-gap: 250px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 50%;
+  top: 50%;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.top-recipes__arrow-nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.top-recipes__buttons {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1;
+}
+
+.fa-angle-left,
+.fa-angle-right {
+  font-size: 5rem;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin: 2px;
+}
+/*# sourceMappingURL=Main.css.map */

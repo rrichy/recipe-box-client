@@ -2,7 +2,7 @@
 
 .recipe {
   width: $card-width;
-  margin: 5px $top-recipe-margin;
+  margin: 5px 0;
   display: grid;
   grid-template-rows: 260px 3rem 3rem 2rem;
   background-color: $ultra-red;
@@ -63,15 +63,12 @@ $mountain-meadow: #02c39aff;
 $ultra-red: #ff6978ff;
 $white: #fcfcfcff; */
 .recipe-listed {
-  width: $recipe-listed-width;
+  width: 100%;
   height: fit-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: "Roboto", sans-serif;
-  margin: 0.2rem;
   padding: 0.3rem;
-  border-radius: 0.5rem;
   background-color: $ultra-red;
   text-decoration: none;
 
@@ -91,7 +88,7 @@ $white: #fcfcfcff; */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 122px;
+    // width: 122px;
   }
 
   p:nth-of-type(2) {

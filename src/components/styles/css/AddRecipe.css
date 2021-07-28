@@ -11,62 +11,52 @@ $top-recipe-margin: 3rem;
 $recipe-listed-width: 200px;
 $listed-img-dim: 45px;
  */
-#add-recipe {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #1414144d;
-  font-family: "Roboto", sans-serif;
-}
-
-#add-recipe form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.add-recipe > a {
+  display: block;
   background-color: #00a896ff;
-  width: 100%;
-  max-width: 600px;
-  min-width: 325px;
-  margin: 12px;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  position: relative;
-  -webkit-box-shadow: 0px 0px 15px black;
-          box-shadow: 0px 0px 15px black;
+  color: #fcfcfcff;
+  margin: 0;
+  text-align: center;
+  line-height: 2.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
-#add-recipe h2 {
+.add-recipe form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: chartreuse;
+  /* change this */
+  width: 100%;
+  position: relative;
+  height: 0;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+}
+
+.add-recipe--active form {
+  height: 500px;
+  /* change this */
+}
+
+.add-recipe h2 {
   margin: 0 0 3rem 0;
 }
 
-#add-recipe fieldset {
+.add-recipe fieldset {
   margin-top: 0.5rem;
   border: none;
   display: -webkit-box;
@@ -85,7 +75,7 @@ $listed-img-dim: 45px;
   width: 100%;
 }
 
-#add-recipe fieldset#directions, #add-recipe fieldset#ingredients {
+.add-recipe fieldset#directions, .add-recipe fieldset#ingredients {
   max-height: 200px;
   overflow-y: auto;
   -webkit-box-pack: start;
@@ -93,11 +83,11 @@ $listed-img-dim: 45px;
           justify-content: flex-start;
 }
 
-#add-recipe fieldset legend {
+.add-recipe fieldset legend {
   font-size: 0.9rem;
 }
 
-#add-recipe fieldset.ingredient {
+.add-recipe fieldset.ingredient {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -109,15 +99,15 @@ $listed-img-dim: 45px;
   margin: 0;
 }
 
-#add-recipe fieldset.ingredient input:first-child {
+.add-recipe fieldset.ingredient input:first-child {
   width: 25px;
 }
 
-#add-recipe fieldset.ingredient input:nth-child(2) {
+.add-recipe fieldset.ingredient input:nth-child(2) {
   width: 35px;
 }
 
-#add-recipe fieldset.direction {
+.add-recipe fieldset.direction {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -129,7 +119,7 @@ $listed-img-dim: 45px;
   margin: 0;
 }
 
-#add-recipe fieldset textarea {
+.add-recipe fieldset textarea {
   float: left;
   width: 100%;
   min-height: 55px;
@@ -138,7 +128,7 @@ $listed-img-dim: 45px;
   max-width: 495px;
 }
 
-#add-recipe fieldset#image {
+.add-recipe fieldset#image {
   width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -146,13 +136,13 @@ $listed-img-dim: 45px;
   font-size: 0.9rem;
 }
 
-#add-recipe input {
+.add-recipe input {
   width: 100%;
   line-height: 1.5rem;
   margin: 0.1rem 0;
 }
 
-#add-recipe button {
+.add-recipe button {
   width: 80px;
   height: 1.5rem;
   margin: 0.1rem 0;
