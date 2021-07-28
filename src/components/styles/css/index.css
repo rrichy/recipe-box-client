@@ -7,16 +7,34 @@ $white: #fcfcfcff;
 $black-text: #141414; */
 * {
   color: #141414;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
   background-color: #fcfcfcff;
-  font-family: "Zen Loop", cursive;
+  font-family: "Roboto", sans-serif;
 }
 
-#root {
+/* #root */
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: blanchedalmond;
   overflow: hidden;
 }
 
@@ -32,21 +50,11 @@ body {
           justify-content: center;
 }
 
-h1 {
-  background-color: #26547cff;
-  margin: 0;
+#tooltip {
+  position: fixed;
+  max-width: 300px;
   text-align: center;
-  height: 6rem;
-  font-size: 4rem;
-  color: linen;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-transform: translate(-50%, -120%);
+          transform: translate(-50%, -120%);
 }
 /*# sourceMappingURL=index.css.map */

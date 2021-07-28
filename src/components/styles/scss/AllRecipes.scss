@@ -1,0 +1,33 @@
+@import "./variables";
+
+.all-recipes {
+  & > a {
+    display: block;
+    background-color: $persian-green;
+    color: $white;
+    margin: 0;
+    text-align: center;
+    line-height: 2.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: relative;
+  }
+
+  &-container {
+    height: 0;
+    background-color: cornflowerblue;
+    overflow-y: auto;
+    transition: height $change-page-transition;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  &--active {
+    .all-recipes-container {
+      padding: 0.5rem;
+      height: 500px; /* change this */
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.all-recipes > a {
+  display: block;
+  background-color: #00a896ff;
+  color: #fcfcfcff;
+  margin: 0;
+  text-align: center;
+  line-height: 2.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.all-recipes-container {
+  height: 0;
+  background-color: cornflowerblue;
+  overflow-y: auto;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.1rem;
+}
+
+.all-recipes--active .all-recipes-container {
+  padding: 0.5rem;
+  height: 500px;
+  /* change this */
+}
+/*# sourceMappingURL=AllRecipes.css.map */
