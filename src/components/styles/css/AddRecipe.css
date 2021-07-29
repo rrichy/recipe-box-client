@@ -11,9 +11,23 @@ $top-recipe-margin: 3rem;
 $recipe-listed-width: 200px;
 $listed-img-dim: 45px;
  */
+.add-recipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .add-recipe > a {
   display: block;
-  background-color: #00a896ff;
+  width: 100%;
+  background-color: #02c39aff;
   color: #fcfcfcff;
   margin: 0;
   text-align: center;
@@ -35,21 +49,22 @@ $listed-img-dim: 45px;
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: chartreuse;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #fcfcfcff;
   /* change this */
   width: 100%;
   position: relative;
   height: 0;
-  -webkit-transition: height 0.5s;
-  transition: height 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  row-gap: 8px;
 }
 
 .add-recipe--active form {
-  height: 500px;
-  /* change this */
+  height: 600px;
+  padding: 5%;
 }
 
 .add-recipe h2 {
@@ -73,14 +88,6 @@ $listed-img-dim: 45px;
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-}
-
-.add-recipe fieldset#directions, .add-recipe fieldset#ingredients {
-  max-height: 200px;
-  overflow-y: auto;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
 }
 
 .add-recipe fieldset legend {
@@ -119,27 +126,12 @@ $listed-img-dim: 45px;
   margin: 0;
 }
 
-.add-recipe fieldset textarea {
-  float: left;
-  width: 100%;
-  min-height: 55px;
-  outline: none;
-  resize: none;
-  max-width: 495px;
-}
-
 .add-recipe fieldset#image {
   width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-size: 0.9rem;
-}
-
-.add-recipe input {
-  width: 100%;
-  line-height: 1.5rem;
-  margin: 0.1rem 0;
 }
 
 .add-recipe button {
@@ -152,6 +144,7 @@ $listed-img-dim: 45px;
 .fa-window-close,
 .fa-minus-circle {
   cursor: pointer;
+  color: #02c39aff;
 }
 
 .fa-plus-circle {
@@ -163,5 +156,77 @@ $listed-img-dim: 45px;
   top: 5%;
   right: 5%;
   font-size: 1.5rem;
+}
+
+.form-input-container {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+}
+
+.form-input-container input {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border: 1px solid #141414;
+  border-radius: 0.3rem;
+  outline: none;
+  padding: 0.5rem;
+  background: none;
+  z-index: 1;
+}
+
+.form-input-container textarea {
+  float: left;
+  width: 100%;
+  min-height: 55px;
+  outline: none;
+  resize: none;
+}
+
+.form-input-container span {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: #cccccc;
+  font-size: 1rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: #fcfcfcff;
+  padding: 0 0.25rem;
+}
+
+.form-input-container input:focus ~ span,
+.form-input-container textarea:focus ~ span {
+  top: -0.5rem;
+  left: 0.5rem;
+  color: #02c39aff;
+  font-size: 0.75rem;
+  font-weight: 400;
+  z-index: 10;
+}
+
+.form-input-container input:not(:placeholder-shown):not(:focus) ~ span,
+.form-input-container textarea:not(:placeholder-shown):not(:focus) ~ span {
+  top: -0.5rem;
+  left: 0.5rem;
+  color: #02c39aff;
+  font-size: 0.75rem;
+  font-weight: 400;
+  z-index: 10;
+}
+
+.form-input-container input:focus,
+.form-input-container textarea:focus {
+  border: 1.5px solid #02c39aff;
+}
+
+.form-input-container .fa-minus-circle {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 11;
 }
 /*# sourceMappingURL=AddRecipe.css.map */

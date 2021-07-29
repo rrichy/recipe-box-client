@@ -32,8 +32,8 @@ const AddRecipe = () => {
     description: "",
     image: "",
     creator: "",
-    ingredients: [{ quantity: "", unit: "", ingredient: "" }],
-    directions: [{ direction: "" }],
+    ingredients: [""],
+    directions: [""],
   });
   const dispatch = useDispatch();
   const page = useSelector((state) => state.page);
@@ -48,20 +48,26 @@ const AddRecipe = () => {
         Add Recipe
       </a>
       <form /* onSubmit={this.handleSubmit} */>
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={data.title}
-          onChange={(e) => editData({ ...data, title: e.target.value })}
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="Description"
-          value={data.description}
-          onChange={(e) => editData({ ...data, description: e.target.value })}
-        />
+        <label className="form-input-container">
+          <input
+            type="text"
+            name="title"
+            value={data.title}
+            placeholder=" "
+            onChange={(e) => editData({ ...data, title: e.target.value })}
+          />
+          <span>Title</span>
+        </label>
+        <label className="form-input-container">
+          <input
+            type="text"
+            name="description"
+            placeholder=" "
+            value={data.description}
+            onChange={(e) => editData({ ...data, description: e.target.value })}
+          />
+          <span>Description</span>
+        </label>
         <fieldset name="image" id="image">
           <label>Choose an image:</label>
           <FileBase
@@ -70,23 +76,26 @@ const AddRecipe = () => {
             onDone={({ base64 }) => editData({ ...data, image: base64 })}
           />
         </fieldset>
-        <input
-          type="text"
-          name="creator"
-          placeholder="Creator"
-          value={data.creator}
-          onChange={(e) => editData({ ...data, creator: e.target.value })}
-        />
+        <label className="form-input-container">
+          <input
+            type="text"
+            name="creator"
+            placeholder=" "
+            value={data.creator}
+            onChange={(e) => editData({ ...data, creator: e.target.value })}
+          />
+          <span>Creator</span>
+        </label>
         <fieldset name="ingredients" id="ingredients">
           <legend>Ingredients</legend>
-          {data.ingredients.map((d, i) => (
+          {data.ingredients.map((ingredient, i) => (
             <AddIngredient
               key={i}
-              data={d}
+              ingredient={ingredient}
               change={(e) => {
-                const { name, value } = e.target;
+                const { value } = e.target;
                 const ingredients = [...data.ingredients];
-                ingredients[i][name] = value;
+                ingredients[i] = value;
                 editData({ ...data, ingredients });
               }}
               index={i}
@@ -100,25 +109,22 @@ const AddRecipe = () => {
           <FontAwesomeIcon
             icon={faPlusCircle}
             onClick={() => {
-              const ingredients = [
-                ...data.ingredients,
-                { quantity: "", unit: "", ingredient: "" },
-              ];
+              const ingredients = [...data.ingredients, ""];
               editData({ ...data, ingredients });
             }}
           />
         </fieldset>
         <fieldset name="directions" id="directions">
           <legend>Directions</legend>
-          {data.directions.map((d, i) => (
+          {data.directions.map((direction, i) => (
             <AddDirection
               key={i}
-              direction={d.direction}
+              direction={direction}
               index={i}
               change={(e) => {
-                const { name, value } = e.target;
+                const { value } = e.target;
                 const directions = [...data.directions];
-                directions[i][name] = value;
+                directions[i] = value;
                 editData({ ...data, directions });
               }}
               remove={() => {
@@ -131,7 +137,7 @@ const AddRecipe = () => {
           <FontAwesomeIcon
             icon={faPlusCircle}
             onClick={() => {
-              const directions = [...data.directions, { direction: "" }];
+              const directions = [...data.directions, ""];
               editData({ ...data, directions });
             }}
           />
@@ -139,14 +145,15 @@ const AddRecipe = () => {
         <div id="button-wrapper">
           <button type="submit">Submit</button>
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               editData({
                 title: "",
                 description: "",
                 image: "",
                 creator: "",
-                ingredients: [{ quantity: "", unit: "", ingredient: "" }],
-                directions: [{ direction: "" }],
+                ingredients: [""],
+                directions: [""],
               });
             }}
           >
@@ -158,52 +165,39 @@ const AddRecipe = () => {
   );
 };
 
-const AddIngredient = ({ data, change, index, remove }) => {
-  const { quantity, unit, ingredient } = data;
-
+const AddIngredient = ({ ingredient, change, index, remove }) => {
   return (
-    <fieldset className="ingredient">
+    // <fieldset className="ingredient">
+    <label className="form-input-container">
       <input
         type="text"
-        placeholder="Qty"
-        name="quantity"
-        value={quantity}
-        onChange={(e) => change(e, index)}
-      />
-      <input
-        type="text"
-        placeholder="Unit"
-        name="unit"
-        value={unit}
-        onChange={(e) => change(e, index)}
-      />
-      <input
-        type="text"
-        placeholder="Ingredient"
+        placeholder=" "
         name="ingredient"
         value={ingredient}
         onChange={(e) => change(e, index)}
       />
-      &nbsp;
+      <span>Enter ingredient</span>
       <FontAwesomeIcon icon={faMinusCircle} onClick={remove} />
-    </fieldset>
+    </label>
+    // </fieldset>
   );
 };
 
 const AddDirection = ({ direction, change, index, remove }) => {
   return (
-    <fieldset className="direction">
-      <label htmlFor={"direction-" + (index + 1)}>{index + 1}</label>
-      &nbsp;
+    // <fieldset className="direction">
+    <label className="form-input-container">
       <textarea
         name="direction"
         id={"direction-" + (index + 1)}
+        placeholder=" "
         value={direction}
         onChange={(e) => change(e, index)}
       ></textarea>
-      &nbsp;
+      <span>{`Step ${index + 1}`}</span>
       <FontAwesomeIcon icon={faMinusCircle} onClick={remove} />
-    </fieldset>
+    </label>
+    // </fieldset>
   );
 };
 

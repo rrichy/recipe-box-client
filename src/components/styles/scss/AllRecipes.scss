@@ -3,7 +3,7 @@
 .all-recipes {
   & > a {
     display: block;
-    background-color: $persian-green;
+    background-color: $ultra-red;
     color: $white;
     margin: 0;
     text-align: center;
@@ -16,7 +16,7 @@
 
   &-container {
     height: 0;
-    background-color: cornflowerblue;
+    background-color: $white;
     overflow-y: auto;
     transition: height $change-page-transition;
     display: flex;
@@ -27,7 +27,7 @@
   &--active {
     .all-recipes-container {
       padding: 0.5rem;
-      height: 500px; /* change this */
+      height: $content-height; /* change this */
     }
   }
 }

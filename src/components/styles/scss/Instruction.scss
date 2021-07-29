@@ -4,21 +4,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  //   grid-template-areas:
-  //     "image image"
-  //     "title like"
-  //     "creator creator"
-  //     "description description"
-  //     "instruction instruction";
-
-  max-width: 400px;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0;
+  top: 64px;
+  width: 600px;
+  height: 580px;
+  background-color: blueviolet;
+  overflow-y: auto;
+  z-index: 5;
 
   img {
     //     grid-area: image;
     width: 100%;
     min-width: 335px;
-    height: 187px;
+    height: 200px;
     object-fit: cover;
     object-position: center;
   }
@@ -66,5 +66,11 @@
   }
   section:nth-of-type(2) {
     grid-area: directions;
+  }
+
+  a:last-child {
+    position: absolute;
+    left: 1.5rem;
+    top: 1rem;
   }
 }

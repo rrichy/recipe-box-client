@@ -23,7 +23,7 @@ h1 {
 
   &--active {
     .top-recipes {
-      height: 500px; /* Change this */
+      height: $content-height;
     }
   }
 }
@@ -31,7 +31,7 @@ h1 {
 .top-recipes {
   position: relative;
   height: 0;
-  background-color: cadetblue;
+  background-color: $white;
   overflow: hidden;
   transition: height $change-page-transition;
   width: 100%;
@@ -50,9 +50,11 @@ h1 {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 100%;
+    width: 95%;
+    height: 65px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     transform: translate(-50%, -50%);
   }
 
@@ -67,8 +69,15 @@ h1 {
 
 .fa-angle-left,
 .fa-angle-right {
-  font-size: 5rem;
+  font-size: 4rem;
   cursor: pointer;
+  transition: all 0.2s;
+  color: $usafa-blue;
+
+  &:hover {
+    font-size: 4.5rem;
+    color: $usafa-blue-highlight;
+  }
 }
 
 input[type="radio"] {

@@ -14,6 +14,7 @@ import {
 import { changePage } from "../actions/pages";
 import { Recipe } from "./Recipe/Recipe";
 import "./styles/css/Main.css";
+import { emptyInstruction } from "../actions/instruction";
 
 const Main = () => {
   const top = useSelector((state) => state.top);
@@ -23,7 +24,13 @@ const Main = () => {
 
   return (
     <div className={"main" + (page === "main" ? " main--active" : "")}>
-      <a href="#main" onClick={() => dispatch(changePage("main"))}>
+      <a
+        href="#main"
+        onClick={() => {
+          dispatch(changePage("main"));
+          dispatch(emptyInstruction());
+        }}
+      >
         Recipe Box
       </a>
       <div className="top-recipes">
