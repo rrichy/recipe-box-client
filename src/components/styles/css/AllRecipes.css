@@ -1,6 +1,6 @@
 .all-recipes > a {
   display: block;
-  background-color: #00a896ff;
+  background-color: #ff6978ff;
   color: #fcfcfcff;
   margin: 0;
   text-align: center;
@@ -13,7 +13,7 @@
 
 .all-recipes-container {
   height: 0;
-  background-color: cornflowerblue;
+  background-color: #fcfcfcff;
   overflow-y: auto;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
@@ -29,7 +29,7 @@
 
 .all-recipes--active .all-recipes-container {
   padding: 0.5rem;
-  height: 500px;
+  height: 600px;
   /* change this */
 }
 /*# sourceMappingURL=AllRecipes.css.map */

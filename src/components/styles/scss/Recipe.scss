@@ -2,21 +2,20 @@
 
 .recipe {
   width: $card-width;
-  margin: 5px 0;
-  display: grid;
-  grid-template-rows: 260px 3rem 3rem 2rem;
-  background-color: $ultra-red;
-  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: $usafa-blue;
+  border-radius: 0.5rem;
   overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  font-family: "Roboto", sans-serif;
   text-decoration: none;
-  box-shadow: 0 0 6px 1px black;
+  box-shadow: 0 1px 4px 0 $black-text;
 
   img {
     width: 100%;
-    height: 100%;
+    height: 260px;
     object-fit: cover;
     object-position: center;
   }
@@ -24,6 +23,7 @@
   h3,
   p {
     margin: 0 0.8rem;
+    color: $white;
   }
 
   p {

@@ -9,16 +9,23 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 400px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: absolute;
+  left: 0;
+  top: 64px;
+  width: 600px;
+  height: 580px;
+  background-color: blueviolet;
+  overflow-y: auto;
+  z-index: 5;
 }
 
 #instructions img {
   width: 100%;
   min-width: 335px;
-  height: 187px;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -75,5 +82,11 @@
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: directions;
+}
+
+#instructions a:last-child {
+  position: absolute;
+  left: 1.5rem;
+  top: 1rem;
 }
 /*# sourceMappingURL=Instruction.css.map */
