@@ -67,12 +67,31 @@ $listed-img-dim: 45px;
   padding: 5%;
 }
 
-.add-recipe h2 {
-  margin: 0 0 3rem 0;
+#button-wrapper {
+  float: right;
 }
 
-.add-recipe fieldset {
-  margin-top: 0.5rem;
+#button-wrapper button {
+  width: 80px;
+  height: 2rem;
+  margin: 0.1rem 0.5rem;
+  background-color: #02c39aff;
+  border: none;
+  color: #fcfcfcff;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0.7;
+}
+
+#button-wrapper button:hover {
+  opacity: 1;
+}
+
+fieldset {
+  position: relative;
   border: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,72 +109,166 @@ $listed-img-dim: 45px;
   width: 100%;
 }
 
-.add-recipe fieldset legend {
+fieldset legend {
   font-size: 0.9rem;
+  margin-bottom: 8px;
 }
 
-.add-recipe fieldset.ingredient {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0.1rem 0;
-  margin: 0;
-}
-
-.add-recipe fieldset.ingredient input:first-child {
-  width: 25px;
-}
-
-.add-recipe fieldset.ingredient input:nth-child(2) {
-  width: 35px;
-}
-
-.add-recipe fieldset.direction {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0.1rem 0;
-  margin: 0;
-}
-
-.add-recipe fieldset#image {
+.dynamic-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
+}
+
+.dynamic-container__element {
+  position: relative;
+  overflow-y: auto;
+  max-height: 128px;
+  width: 100%;
+}
+
+.dynamic-container__element label:first-child input,
+.dynamic-container__element div:first-child textarea {
+  border-top-left-radius: 0.3rem;
+}
+
+.dynamic-container__element label:last-child input,
+.dynamic-container__element div:last-child textarea {
+  border-bottom-left-radius: 0.3rem;
+}
+
+.dynamic-container__add-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 0.9rem;
+  margin: 0;
+  background-color: #02c39aff;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  color: #fcfcfcff;
+  min-width: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-.add-recipe button {
-  width: 80px;
-  height: 1.5rem;
-  margin: 0.1rem 0;
+.dynamic-container__add-button:hover {
+  opacity: 1;
+}
+
+.dynamic-container label {
+  position: relative;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.dynamic-container label input {
+  width: 100%;
+  height: 2rem;
+  font-size: 1rem;
+  border: 1px solid #141414;
+  outline: none;
+  padding: 0.5rem;
+  background: none;
+  z-index: 1;
+}
+
+.dynamic-container label input::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.dynamic-container label input:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.dynamic-container label input::-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.dynamic-container label input::placeholder {
+  color: #cccccc;
+}
+
+.dynamic-container label .fa-minus-circle {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 11;
+}
+
+.dynamic-container__directions {
+  position: relative;
+  width: 100%;
+  height: 55px;
+}
+
+.dynamic-container__directions textarea {
+  width: 100%;
+  min-height: 100%;
+  outline: none;
+  resize: none;
+  font-family: "Roboto", sans-serif;
+  padding: 0.5rem;
+}
+
+.dynamic-container__directions textarea::-webkit-input-placeholder {
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.dynamic-container__directions textarea:-ms-input-placeholder {
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.dynamic-container__directions textarea::-ms-input-placeholder {
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.dynamic-container__directions textarea::placeholder {
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.dynamic-container__directions .fa-minus-circle {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 11;
+}
+
+.dynamic-container input:focus,
+.dynamic-container textarea:focus {
+  border: 1.5px solid #02c39aff;
 }
 
 .fa-plus-circle,
-.fa-window-close,
 .fa-minus-circle {
   cursor: pointer;
   color: #02c39aff;
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-.fa-plus-circle {
-  margin-top: 0.5rem;
-}
-
-.fa-window-close {
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  font-size: 1.5rem;
+.fa-plus-circle:hover,
+.fa-minus-circle:hover {
+  opacity: 1;
 }
 
 .form-input-container {
@@ -164,9 +277,9 @@ $listed-img-dim: 45px;
   height: 2rem;
 }
 
-.form-input-container input {
+.form-input-container input[type="text"] {
   width: 100%;
-  height: 100%;
+  height: 2rem;
   font-size: 1rem;
   border: 1px solid #141414;
   border-radius: 0.3rem;
@@ -176,12 +289,20 @@ $listed-img-dim: 45px;
   z-index: 1;
 }
 
-.form-input-container textarea {
-  float: left;
-  width: 100%;
-  min-height: 55px;
-  outline: none;
-  resize: none;
+.form-input-container input[type="text"]::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.form-input-container input[type="text"]:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.form-input-container input[type="text"]::-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.form-input-container input[type="text"]::placeholder {
+  color: #cccccc;
 }
 
 .form-input-container span {
@@ -193,31 +314,29 @@ $listed-img-dim: 45px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: #fcfcfcff;
+}
+
+.form-input-container input[type="text"]:focus ~ span {
+  top: -0.5rem;
+  left: 0.5rem;
   padding: 0 0.25rem;
-}
-
-.form-input-container input:focus ~ span,
-.form-input-container textarea:focus ~ span {
-  top: -0.5rem;
-  left: 0.5rem;
   color: #02c39aff;
   font-size: 0.75rem;
   font-weight: 400;
   z-index: 10;
 }
 
-.form-input-container input:not(:placeholder-shown):not(:focus) ~ span,
-.form-input-container textarea:not(:placeholder-shown):not(:focus) ~ span {
+.form-input-container input[type="text"]:not(:placeholder-shown):not(:focus) ~ span {
   top: -0.5rem;
   left: 0.5rem;
+  padding: 0 0.25rem;
   color: #02c39aff;
   font-size: 0.75rem;
   font-weight: 400;
   z-index: 10;
 }
 
-.form-input-container input:focus,
-.form-input-container textarea:focus {
+.form-input-container input[type="text"]:focus {
   border: 1.5px solid #02c39aff;
 }
 
@@ -228,5 +347,51 @@ $listed-img-dim: 45px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: 11;
+}
+
+.form-input-file-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border: 1px solid #141414;
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 2rem;
+  cursor: pointer;
+  padding-left: 0.5rem;
+}
+
+.form-input-file-container span {
+  float: right;
+  background-color: #02c39aff;
+  opacity: 0.7;
+  color: #fcfcfcff;
+  font-size: 0.75rem;
+  padding: 0.4rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.3rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.form-input-file-container:hover span {
+  background-color: #02c39aff;
+  opacity: 1;
+}
+
+.form-input-file-container input[type="file"] {
+  color: #141414;
+  font-size: 0.9rem;
+}
+
+.form-input-file-container input[type="file"]::-webkit-file-upload-button {
+  display: none;
 }
 /*# sourceMappingURL=AddRecipe.css.map */

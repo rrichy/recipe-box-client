@@ -68,14 +68,16 @@ const AddRecipe = () => {
           />
           <span>Description</span>
         </label>
-        <fieldset name="image" id="image">
-          <label>Choose an image:</label>
+        {/* <fieldset name="image" id="image"> */}
+        <label className="form-input-file-container">
           <FileBase
             type="file"
             multiple={false}
             onDone={({ base64 }) => editData({ ...data, image: base64 })}
           />
-        </fieldset>
+          <span>Choose Image</span> {/* span as a button */}
+        </label>
+        {/* </fieldset> */}
         <label className="form-input-container">
           <input
             type="text"
@@ -86,61 +88,73 @@ const AddRecipe = () => {
           />
           <span>Creator</span>
         </label>
-        <fieldset name="ingredients" id="ingredients">
+        <fieldset>
           <legend>Ingredients</legend>
-          {data.ingredients.map((ingredient, i) => (
-            <AddIngredient
-              key={i}
-              ingredient={ingredient}
-              change={(e) => {
-                const { value } = e.target;
-                const ingredients = [...data.ingredients];
-                ingredients[i] = value;
+          <div className="dynamic-container">
+            <div className="dynamic-container__element">
+              {data.ingredients.map((ingredient, i) => (
+                <AddIngredient
+                  key={i}
+                  ingredient={ingredient}
+                  change={(e) => {
+                    const { value } = e.target;
+                    const ingredients = [...data.ingredients];
+                    ingredients[i] = value;
+                    editData({ ...data, ingredients });
+                  }}
+                  index={i}
+                  remove={() => {
+                    const ingredients = [...data.ingredients];
+                    ingredients.splice(i, 1);
+                    editData({ ...data, ingredients });
+                  }}
+                />
+              ))}
+            </div>
+            <div
+              className="dynamic-container__add-button"
+              onClick={() => {
+                const ingredients = [...data.ingredients, ""];
                 editData({ ...data, ingredients });
               }}
-              index={i}
-              remove={() => {
-                const ingredients = [...data.ingredients];
-                ingredients.splice(i, 1);
-                editData({ ...data, ingredients });
-              }}
-            />
-          ))}
-          <FontAwesomeIcon
-            icon={faPlusCircle}
-            onClick={() => {
-              const ingredients = [...data.ingredients, ""];
-              editData({ ...data, ingredients });
-            }}
-          />
+            >
+              +
+            </div>
+          </div>
         </fieldset>
-        <fieldset name="directions" id="directions">
+        <fieldset>
           <legend>Directions</legend>
-          {data.directions.map((direction, i) => (
-            <AddDirection
-              key={i}
-              direction={direction}
-              index={i}
-              change={(e) => {
-                const { value } = e.target;
-                const directions = [...data.directions];
-                directions[i] = value;
+          <div className="dynamic-container">
+            <div className="dynamic-container__element">
+              {data.directions.map((direction, i) => (
+                <AddDirection
+                  key={i}
+                  direction={direction}
+                  index={i}
+                  change={(e) => {
+                    const { value } = e.target;
+                    const directions = [...data.directions];
+                    directions[i] = value;
+                    editData({ ...data, directions });
+                  }}
+                  remove={() => {
+                    const directions = [...data.directions];
+                    directions.splice(i, 1);
+                    editData({ ...data, directions });
+                  }}
+                />
+              ))}
+            </div>
+            <div
+              className="dynamic-container__add-button"
+              onClick={() => {
+                const directions = [...data.directions, ""];
                 editData({ ...data, directions });
               }}
-              remove={() => {
-                const directions = [...data.directions];
-                directions.splice(i, 1);
-                editData({ ...data, directions });
-              }}
-            />
-          ))}
-          <FontAwesomeIcon
-            icon={faPlusCircle}
-            onClick={() => {
-              const directions = [...data.directions, ""];
-              editData({ ...data, directions });
-            }}
-          />
+            >
+              +
+            </div>
+          </div>
         </fieldset>
         <div id="button-wrapper">
           <button type="submit">Submit</button>
@@ -168,15 +182,14 @@ const AddRecipe = () => {
 const AddIngredient = ({ ingredient, change, index, remove }) => {
   return (
     // <fieldset className="ingredient">
-    <label className="form-input-container">
+    <label>
       <input
         type="text"
-        placeholder=" "
-        name="ingredient"
+        placeholder="Enter Ingredient"
         value={ingredient}
         onChange={(e) => change(e, index)}
       />
-      <span>Enter ingredient</span>
+      {/* <span>Enter ingredient</span> */}
       <FontAwesomeIcon icon={faMinusCircle} onClick={remove} />
     </label>
     // </fieldset>
@@ -186,17 +199,15 @@ const AddIngredient = ({ ingredient, change, index, remove }) => {
 const AddDirection = ({ direction, change, index, remove }) => {
   return (
     // <fieldset className="direction">
-    <label className="form-input-container">
+    <div className="dynamic-container__directions">
       <textarea
-        name="direction"
-        id={"direction-" + (index + 1)}
-        placeholder=" "
+        placeholder={`Step ${index + 1}`}
         value={direction}
         onChange={(e) => change(e, index)}
       ></textarea>
-      <span>{`Step ${index + 1}`}</span>
+      {/* <span>{`Step ${index + 1}`}</span> */}
       <FontAwesomeIcon icon={faMinusCircle} onClick={remove} />
-    </label>
+    </div>
     // </fieldset>
   );
 };
