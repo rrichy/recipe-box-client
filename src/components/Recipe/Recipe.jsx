@@ -5,7 +5,7 @@ import { faThumbsUp as inactiveThumb } from "@fortawesome/free-regular-svg-icons
 import { useDispatch } from "react-redux";
 
 import { updateTooltipDesc } from "../../actions/tooltip";
-import { updateInstruction } from "../../actions/instruction";
+import { showInstruction, updateInstruction } from "../../actions/instruction";
 import "../styles/css/Recipe.css";
 import defaultImg from "../../images/default.jpg";
 
@@ -16,7 +16,10 @@ export const Recipe = ({ data }) => {
     <a
       href="#"
       className={"recipe " + type}
-      onClick={() => dispatch(updateInstruction(data))}
+      onClick={() => {
+        dispatch(updateInstruction(data));
+        dispatch(showInstruction());
+      }}
     >
       <img src={image || defaultImg} alt={title || "Alt Title"} />
       <h3>{title || "This is a Title"}</h3>
@@ -42,7 +45,10 @@ export const RecipeListed = ({ data }) => {
       className="recipe-listed"
       onMouseEnter={() => dispatch(updateTooltipDesc(description))}
       onMouseLeave={() => dispatch(updateTooltipDesc(""))}
-      onClick={() => dispatch(updateInstruction(data))}
+      onClick={() => {
+        dispatch(updateInstruction(data));
+        dispatch(showInstruction());
+      }}
     >
       <img src={image || defaultImg} alt={title || "Alt Title"} />
       <p>{title || "This is a Title"}</p>

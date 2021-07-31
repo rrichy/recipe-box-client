@@ -1,32 +1,19 @@
-import React, { Component, useState } from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import FileBase from "react-file-base64";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
+import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { changePage } from "../../actions/pages";
 import { postRecipe } from "../../actions/box";
 import "../styles/css/AddRecipe.css";
 
-// // const mapStateToProps = (state) => ({})
-// const mapDispatchToProps = (dispatch) => ({
-//   post: (recipe) => dispatch(postRecipe(recipe)),
-// });
-
-// class AddRecipe extends Component {
-
-//   handleSubmit = (e) => {
-//     e.preventDefault();
-//     this.props.post(this.state);
-//     // this.handleClear();
-//     // console.log("local state");
-//     // console.log(this.state);
-//     // console.log("redux state");
-//     // console.log(this.props);
-//   };
-
 const AddRecipe = () => {
+  // const formData = useSelector((state) => state.form);
+
+  // console.log("data from state.form");
+  // console.log(formData);
+
   const [data, editData] = useState({
     title: "",
     description: "",
@@ -44,10 +31,24 @@ const AddRecipe = () => {
         "add-recipe" + (page === "add-recipe" ? " add-recipe--active" : "")
       }
     >
-      <a href="#add-recipe" onClick={() => dispatch(changePage("add-recipe"))}>
+      <a href="#" onClick={() => dispatch(changePage("add-recipe"))}>
         Add Recipe
       </a>
-      <form /* onSubmit={this.handleSubmit} */>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(postRecipe(data));
+          console.log(data);
+          editData({
+            title: "",
+            description: "",
+            image: "",
+            creator: "",
+            ingredients: [""],
+            directions: [""],
+          });
+        }}
+      >
         <label className="form-input-container">
           <input
             type="text"
@@ -68,16 +69,14 @@ const AddRecipe = () => {
           />
           <span>Description</span>
         </label>
-        {/* <fieldset name="image" id="image"> */}
         <label className="form-input-file-container">
           <FileBase
             type="file"
             multiple={false}
             onDone={({ base64 }) => editData({ ...data, image: base64 })}
           />
-          <span>Choose Image</span> {/* span as a button */}
+          <span>Choose Image</span>
         </label>
-        {/* </fieldset> */}
         <label className="form-input-container">
           <input
             type="text"
@@ -181,7 +180,6 @@ const AddRecipe = () => {
 
 const AddIngredient = ({ ingredient, change, index, remove }) => {
   return (
-    // <fieldset className="ingredient">
     <label>
       <input
         type="text"
@@ -189,26 +187,21 @@ const AddIngredient = ({ ingredient, change, index, remove }) => {
         value={ingredient}
         onChange={(e) => change(e, index)}
       />
-      {/* <span>Enter ingredient</span> */}
       <FontAwesomeIcon icon={faMinusCircle} onClick={remove} />
     </label>
-    // </fieldset>
   );
 };
 
 const AddDirection = ({ direction, change, index, remove }) => {
   return (
-    // <fieldset className="direction">
     <div className="dynamic-container__directions">
       <textarea
         placeholder={`Step ${index + 1}`}
         value={direction}
         onChange={(e) => change(e, index)}
       ></textarea>
-      {/* <span>{`Step ${index + 1}`}</span> */}
       <FontAwesomeIcon icon={faMinusCircle} onClick={remove} />
     </div>
-    // </fieldset>
   );
 };
 

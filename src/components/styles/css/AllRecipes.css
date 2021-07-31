@@ -1,6 +1,6 @@
 .all-recipes > a {
   display: block;
-  background-color: #ff6978ff;
+  background-color: #ff9aa5;
   color: #fcfcfcff;
   margin: 0;
   text-align: center;
@@ -13,10 +13,10 @@
 
 .all-recipes-container {
   height: 0;
-  background-color: #fcfcfcff;
+  background-color: #eef4f6;
   overflow-y: auto;
-  -webkit-transition: height 0.5s;
-  transition: height 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,5 +31,11 @@
   padding: 0.5rem;
   height: 600px;
   /* change this */
+}
+
+@media (max-width: 425px) {
+  .all-recipes--active .all-recipes-container {
+    height: calc(100vh - 144px);
+  }
 }
 /*# sourceMappingURL=AllRecipes.css.map */

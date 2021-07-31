@@ -22,10 +22,16 @@ h1 {
   height: 600px;
 }
 
+@media (max-width: 425px) {
+  .main--active .top-recipes {
+    height: calc(100vh - 144px);
+  }
+}
+
 .top-recipes {
   position: relative;
   height: 0;
-  background-color: #fcfcfcff;
+  background-color: #eef4f6;
   overflow: hidden;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
@@ -67,6 +73,7 @@ h1 {
           align-items: center;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .top-recipes__buttons {
@@ -82,18 +89,44 @@ h1 {
 .fa-angle-right {
   font-size: 4rem;
   cursor: pointer;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   color: #26547cff;
+  opacity: 0.7;
+  pointer-events: auto;
 }
 
 .fa-angle-left:hover,
 .fa-angle-right:hover {
   font-size: 4.5rem;
-  color: #326fa4;
+  opacity: 1;
 }
 
-input[type="radio"] {
+.custom-radio {
+  cursor: pointer;
   margin: 2px;
+}
+
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-radio input:checked ~ span {
+  background-color: #26547cff;
+  opacity: 1;
+}
+
+.custom-radio span {
+  height: 13px;
+  width: 13px;
+  border: 1px solid #26547cff;
+  opacity: 0.8;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.custom-radio span:hover {
+  opacity: 1;
 }
 /*# sourceMappingURL=Main.css.map */

@@ -28,10 +28,16 @@ h1 {
   }
 }
 
+@media (max-width: 425px) {
+  .main--active .top-recipes {
+    height: $content-height-mobile;
+  }
+}
+
 .top-recipes {
   position: relative;
   height: 0;
-  background-color: $white;
+  background-color: $cool-blue-bg;
   overflow: hidden;
   transition: height $change-page-transition;
   width: 100%;
@@ -56,6 +62,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     transform: translate(-50%, -50%);
+    pointer-events: none;
   }
 
   &__buttons {
@@ -71,15 +78,61 @@ h1 {
 .fa-angle-right {
   font-size: 4rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: 0.3s;
   color: $usafa-blue;
+  opacity: 0.7;
+  pointer-events: auto;
 
   &:hover {
     font-size: 4.5rem;
-    color: $usafa-blue-highlight;
+    opacity: 1;
   }
 }
 
-input[type="radio"] {
+// input[type="radio"] {
+//   margin: 2px;
+
+//   &:last-child {
+//     &::after {
+//       content: " ";
+//       height: 13px;
+//       width: 13px;
+//       border: 2px solid $usafa-blue;
+//       opacity: 0.8;
+//       display: inline-block;
+//       border-radius: 50%;
+//     }
+
+//     &:hover::after {
+//       opacity: 1;
+//     }
+//   }
+// }
+
+.custom-radio {
+  cursor: pointer;
   margin: 2px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+
+    &:checked ~ span {
+      background-color: $usafa-blue;
+      opacity: 1;
+    }
+  }
+
+  span {
+    height: 13px;
+    width: 13px;
+    border: 1px solid $usafa-blue;
+    opacity: 0.8;
+    display: inline-block;
+    border-radius: 50%;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

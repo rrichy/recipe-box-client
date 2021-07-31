@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateTooltipPos } from "../actions/tooltip";
+import { hideTooltip, showTooltip, updateTooltipPos } from "../actions/tooltip";
 import { RecipeListed } from "./Recipe/Recipe";
 import { topRecipes } from "../actions/toprecipes";
 import { changePage } from "../actions/pages";
@@ -13,19 +13,23 @@ const AllRecipes = () => {
 
   const dispatch = useDispatch();
 
-  const top = box.sort((a, b) => b.likeCount - a.likeCount).slice(0, 5);
+  useEffect(() => {
+    const top = box.sort((a, b) => b.likeCount - a.likeCount).slice(0, 5);
+    dispatch(topRecipes(top));
+  }, [box]);
 
-  dispatch(topRecipes(top));
+  useEffect(() => {
+    if (page === "all-recipes") setTimeout(() => dispatch(showTooltip()), 500);
+    else dispatch(hideTooltip());
+  }, [page]);
+
   return (
     <div
       className={
         "all-recipes" + (page === "all-recipes" ? " all-recipes--active" : "")
       }
     >
-      <a
-        href="#all-recipes"
-        onClick={() => dispatch(changePage("all-recipes"))}
-      >
+      <a href="#" onClick={() => dispatch(changePage("all-recipes"))}>
         All Recipes
       </a>
       <div

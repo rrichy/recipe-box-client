@@ -52,8 +52,7 @@ $listed-img-dim: 45px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  background-color: #fcfcfcff;
-  /* change this */
+  background-color: #eef4f6;
   width: 100%;
   position: relative;
   height: 0;
@@ -167,20 +166,16 @@ fieldset legend {
 .dynamic-container label {
   position: relative;
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 
 .dynamic-container label input {
+  background-color: #fcfcfcff;
   width: 100%;
   height: 2rem;
   font-size: 1rem;
   border: 1px solid #141414;
   outline: none;
   padding: 0.5rem;
-  background: none;
-  z-index: 1;
 }
 
 .dynamic-container label input::-webkit-input-placeholder {
@@ -215,6 +210,7 @@ fieldset legend {
 }
 
 .dynamic-container__directions textarea {
+  background-color: #fcfcfcff;
   width: 100%;
   min-height: 100%;
   outline: none;
@@ -286,6 +282,7 @@ fieldset legend {
   outline: none;
   padding: 0.5rem;
   background: none;
+  background-color: #fcfcfcff;
   z-index: 1;
 }
 
@@ -324,6 +321,8 @@ fieldset legend {
   font-size: 0.75rem;
   font-weight: 400;
   z-index: 10;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #fcfcfcff), color-stop(44%, #eef4f6));
+  background: linear-gradient(0deg, #fcfcfcff 40%, #eef4f6 44%);
 }
 
 .form-input-container input[type="text"]:not(:placeholder-shown):not(:focus) ~ span {
@@ -334,6 +333,8 @@ fieldset legend {
   font-size: 0.75rem;
   font-weight: 400;
   z-index: 10;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #fcfcfcff), color-stop(44%, #eef4f6));
+  background: linear-gradient(0deg, #fcfcfcff 40%, #eef4f6 44%);
 }
 
 .form-input-container input[type="text"]:focus {
@@ -366,6 +367,7 @@ fieldset legend {
   height: 2rem;
   cursor: pointer;
   padding-left: 0.5rem;
+  background-color: #fcfcfcff;
 }
 
 .form-input-file-container span {
@@ -379,6 +381,7 @@ fieldset legend {
   border-radius: 0.3rem;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .form-input-file-container:hover span {
@@ -388,10 +391,22 @@ fieldset legend {
 
 .form-input-file-container input[type="file"] {
   color: #141414;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .form-input-file-container input[type="file"]::-webkit-file-upload-button {
   display: none;
+}
+
+@media (max-width: 425px) {
+  .add-recipe--active form {
+    height: calc(100vh - 144px);
+  }
+  .dynamic-container__element {
+    max-height: 160px;
+  }
+  fieldset:nth-of-type(2) .dynamic-container__element {
+    max-height: 300px;
+  }
 }
 /*# sourceMappingURL=AddRecipe.css.map */

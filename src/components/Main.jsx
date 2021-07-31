@@ -4,17 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
   faAngleRight,
-  faDotCircle,
+  // faDotCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faCircle,
-  faDotCircle as faHoverDotCircle,
-} from "@fortawesome/free-regular-svg-icons";
+// import {
+//   faCircle,
+//   faDotCircle as faHoverDotCircle,
+// } from "@fortawesome/free-regular-svg-icons";
 
 import { changePage } from "../actions/pages";
 import { Recipe } from "./Recipe/Recipe";
 import "./styles/css/Main.css";
-import { emptyInstruction } from "../actions/instruction";
+import { hideInstruction, emptyInstruction } from "../actions/instruction";
 
 const Main = () => {
   const top = useSelector((state) => state.top);
@@ -25,10 +25,11 @@ const Main = () => {
   return (
     <div className={"main" + (page === "main" ? " main--active" : "")}>
       <a
-        href="#main"
+        href="#"
         onClick={() => {
           dispatch(changePage("main"));
-          dispatch(emptyInstruction());
+          setTimeout(() => dispatch(emptyInstruction()), 600);
+          dispatch(hideInstruction());
         }}
       >
         Recipe Box
@@ -48,16 +49,19 @@ const Main = () => {
           {Array(5)
             .fill()
             .map((_, i) => (
-              <input
-                key={i}
-                type="radio"
-                name="select"
-                value={i}
-                checked={currentRecipe === i}
-                onClick={({ target }) => {
-                  nextRecipe(Number(target.value));
-                }}
-              />
+              <label class="custom-radio">
+                <input
+                  key={i}
+                  type="radio"
+                  name="select"
+                  value={i}
+                  checked={currentRecipe === i}
+                  onClick={({ target }) => {
+                    nextRecipe(Number(target.value));
+                  }}
+                />
+                <span></span>
+              </label>
             ))}
         </div>
         <div className="top-recipes__arrow-nav">
