@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp as inactiveThumb } from "@fortawesome/free-regular-svg-icons";
-import { useSelector, useDispatch } from "react-redux";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
 
-import { emptyInstruction } from "../actions/instruction";
+import { editRecipe } from "../actions/form";
+import { hideInstruction, emptyInstruction } from "../actions/instruction";
 import "./styles/css/Instruction.css";
 
 const Instructions = ({ recipe }) => {
-  // const recipe = useSelector((state) => state.instruction);
-  const dispatch = useDispatch();
-  console.log("current instruction");
-  console.log(recipe);
-
   const {
     image,
     title,
@@ -22,10 +19,12 @@ const Instructions = ({ recipe }) => {
     directions,
   } = recipe;
 
+  const dispatch = useDispatch();
+
   return (
-    <div id="instructions">
-      <img src={image} alt={title} />
-      <div>
+    <div className="instructions">
+      <img className="instructions__image" src={image} alt={title} />
+      <div className="instructions__header">
         <h2>{title}</h2>
         <span>
           &nbsp;
@@ -33,9 +32,9 @@ const Instructions = ({ recipe }) => {
         </span>
       </div>
 
-      <span>{creator}</span>
-      <span>{description}</span>
-      <div>
+      <span className="instructions__creator">{creator}</span>
+      <span className="instructions__description">{description}</span>
+      <div className="instructions__main-container">
         <section>
           <h3>Ingredients</h3>
           <ul>
@@ -51,8 +50,25 @@ const Instructions = ({ recipe }) => {
           </ul>
         </section>
       </div>
-      <a href="#" onClick={() => dispatch(emptyInstruction())}>
+      <a
+        href="#"
+        className="instructions__return"
+        onClick={() => {
+          setTimeout(() => dispatch(emptyInstruction()), 600);
+          dispatch(hideInstruction());
+        }}
+      >
         Back
+      </a>
+      <a
+        href="#"
+        className="instructions__edit"
+        onClick={() => dispatch(editRecipe(recipe))}
+      >
+        <FontAwesomeIcon icon={faEdit} />
+      </a>
+      <a href="#" className="instructions__delete" onClick={() => {}}>
+        <FontAwesomeIcon icon={faTrash} />
       </a>
     </div>
   );

@@ -16,9 +16,9 @@
 
   &-container {
     height: 0;
-    background-color: $white;
+    background-color: $cool-blue-bg;
     overflow-y: auto;
-    transition: height $change-page-transition;
+    transition: $change-page-transition;
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
@@ -29,5 +29,11 @@
       padding: 0.5rem;
       height: $content-height; /* change this */
     }
+  }
+}
+
+@media (max-width: 425px) {
+  .all-recipes--active .all-recipes-container {
+    height: $content-height-mobile;
   }
 }

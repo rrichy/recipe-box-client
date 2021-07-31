@@ -11,8 +11,10 @@ import Instructions from "./components/Instruction";
 import "./components/styles/css/index.css";
 
 const App = () => {
-  const { description, x, y } = useSelector((state) => state.tooltip);
-  const recipe = useSelector((state) => state.instruction);
+  const { show, description, x, y } = useSelector((state) => state.tooltip);
+  const { show: showInstruction, data } = useSelector(
+    (state) => state.instruction
+  );
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,15 +30,15 @@ const App = () => {
           <AllRecipes />
         </div>
         <CSSTransition
-          in={Object.entries(recipe).length !== 0}
+          in={showInstruction}
           timeout={500}
           classNames="instruction-transition"
           unmountOnExit
         >
-          <Instructions recipe={recipe} />
+          <Instructions recipe={data} />
         </CSSTransition>
       </div>
-      {description !== "" && (
+      {show && description !== "" && (
         <div id="tooltip" style={{ left: x, top: y }}>
           {description}
         </div>

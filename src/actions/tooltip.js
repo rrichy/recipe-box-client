@@ -1,4 +1,27 @@
-import { UPDATE_TOOLTIP_DESC, UPDATE_TOOLTIP_POS } from "./actionTypes";
+import {
+  SHOW_TOOLTIP,
+  HIDE_TOOLTIP,
+  UPDATE_TOOLTIP_DESC,
+  UPDATE_TOOLTIP_POS,
+} from "./actionTypes";
+
+export function showTooltip() {
+  return (dispatch) => {
+    dispatch({
+      type: SHOW_TOOLTIP,
+      payload: true,
+    });
+  };
+}
+
+export function hideTooltip() {
+  return (dispatch) => {
+    dispatch({
+      type: HIDE_TOOLTIP,
+      payload: false,
+    });
+  };
+}
 
 export function updateTooltipDesc(description) {
   return (dispatch) =>
