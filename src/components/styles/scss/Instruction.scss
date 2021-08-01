@@ -83,10 +83,20 @@
     }
   }
 
-  &__return {
+  &__button-container {
+    width: 100%;
     position: absolute;
-    left: 1.5rem;
-    top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  &__button-subcontainer {
+    width: fit-content !important;
+  }
+
+  &__return {
     text-decoration: none;
     color: $white;
     background-color: $usafa-blue;
@@ -112,6 +122,7 @@
     &:hover {
       opacity: 1;
     }
+    margin-right: 0.5rem;
   }
 
   &__delete {

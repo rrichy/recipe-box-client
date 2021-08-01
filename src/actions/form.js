@@ -1,10 +1,10 @@
 import { EDIT_RECIPE } from "./actionTypes";
 
-export function editRecipe(recipe) {
+export function editRecipe(id) {
   return (dispatch) => {
     dispatch({
       type: EDIT_RECIPE,
-      payload: recipe,
+      payload: id,
     });
   };
 }

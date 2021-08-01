@@ -4,9 +4,11 @@ import { faThumbsUp as inactiveThumb } from "@fortawesome/free-regular-svg-icons
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 
+import { deleteRecipe } from "../actions/box";
 import { editRecipe } from "../actions/form";
 import { hideInstruction, emptyInstruction } from "../actions/instruction";
 import "./styles/css/Instruction.css";
+import { changePage } from "../actions/pages";
 
 const Instructions = ({ recipe }) => {
   const {
@@ -17,6 +19,7 @@ const Instructions = ({ recipe }) => {
     description,
     ingredients,
     directions,
+    _id,
   } = recipe;
 
   const dispatch = useDispatch();
@@ -50,26 +53,41 @@ const Instructions = ({ recipe }) => {
           </ul>
         </section>
       </div>
-      <a
-        href="#"
-        className="instructions__return"
-        onClick={() => {
-          setTimeout(() => dispatch(emptyInstruction()), 600);
-          dispatch(hideInstruction());
-        }}
-      >
-        Back
-      </a>
-      <a
-        href="#"
-        className="instructions__edit"
-        onClick={() => dispatch(editRecipe(recipe))}
-      >
-        <FontAwesomeIcon icon={faEdit} />
-      </a>
-      <a href="#" className="instructions__delete" onClick={() => {}}>
-        <FontAwesomeIcon icon={faTrash} />
-      </a>
+      <div className="instructions__button-container">
+        <a
+          href="#"
+          className="instructions__return"
+          onClick={() => {
+            // setTimeout(() => dispatch(emptyInstruction()), 600);
+            dispatch(hideInstruction());
+          }}
+        >
+          Back
+        </a>
+        <div className="instructions__button-subcontainer">
+          <a
+            href="#"
+            className="instructions__edit"
+            onClick={() => {
+              dispatch(hideInstruction());
+              dispatch(editRecipe(_id));
+              dispatch(changePage("add-recipe"));
+            }}
+          >
+            <FontAwesomeIcon icon={faEdit} />
+          </a>
+          <a
+            href="#"
+            className="instructions__delete"
+            onClick={() => {
+              dispatch(hideInstruction());
+              dispatch(deleteRecipe(_id));
+            }}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
