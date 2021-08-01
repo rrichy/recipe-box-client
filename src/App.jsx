@@ -11,6 +11,7 @@ import Instructions from "./components/Instruction";
 import "./components/styles/css/index.css";
 
 const App = () => {
+  const currentId = useSelector((state) => state.currentId);
   const { show, description, x, y } = useSelector((state) => state.tooltip);
   const { show: showInstruction, data } = useSelector(
     (state) => state.instruction
@@ -19,7 +20,8 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBox());
-  }, [dispatch]);
+    console.log("getting box");
+  }, [currentId, dispatch]);
 
   return (
     <>

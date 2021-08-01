@@ -101,10 +101,28 @@
   text-align: justify;
 }
 
-.instructions__return {
+.instructions__button-container {
+  width: 100%;
   position: absolute;
-  left: 1.5rem;
-  top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem;
+}
+
+.instructions__button-subcontainer {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+.instructions__return {
   text-decoration: none;
   color: #fcfcfcff;
   background-color: #26547cff;
@@ -129,6 +147,7 @@
   opacity: 0.7;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  margin-right: 0.5rem;
 }
 
 .instructions__edit:hover {

@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import FileBase from "react-file-base64";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
+import { editRecipe } from "../../actions/form";
 import { changePage } from "../../actions/pages";
-import { postRecipe } from "../../actions/box";
+import { getBox, postRecipe, updateRecipe } from "../../actions/box";
 import "../styles/css/AddRecipe.css";
 
 const AddRecipe = () => {
-  // const formData = useSelector((state) => state.form);
-
-  // console.log("data from state.form");
-  // console.log(formData);
-
   const [data, editData] = useState({
     title: "",
     description: "",
@@ -22,8 +18,44 @@ const AddRecipe = () => {
     ingredients: [""],
     directions: [""],
   });
-  const dispatch = useDispatch();
+
+  const currentId = useSelector((state) => state.currentId);
+  const recipe =
+    useSelector((state) => state.box.find((r) => r._id === currentId)) || null;
+
   const page = useSelector((state) => state.page);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (recipe) editData(recipe);
+  }, [currentId]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (currentId) {
+      dispatch(updateRecipe(currentId, data));
+    } else {
+      dispatch(postRecipe(data));
+    }
+
+    clear(e);
+  };
+
+  const clear = (e) => {
+    e.preventDefault();
+    editData({
+      title: "",
+      description: "",
+      image: "",
+      creator: "",
+      ingredients: [""],
+      directions: [""],
+    });
+
+    dispatch(editRecipe(null));
+  };
 
   return (
     <div
@@ -32,23 +64,9 @@ const AddRecipe = () => {
       }
     >
       <a href="#" onClick={() => dispatch(changePage("add-recipe"))}>
-        Add Recipe
+        {currentId ? "Edit Recipe" : "Add Recipe"}
       </a>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(postRecipe(data));
-          console.log(data);
-          editData({
-            title: "",
-            description: "",
-            image: "",
-            creator: "",
-            ingredients: [""],
-            directions: [""],
-          });
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <label className="form-input-container">
           <input
             type="text"
@@ -157,21 +175,7 @@ const AddRecipe = () => {
         </fieldset>
         <div id="button-wrapper">
           <button type="submit">Submit</button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              editData({
-                title: "",
-                description: "",
-                image: "",
-                creator: "",
-                ingredients: [""],
-                directions: [""],
-              });
-            }}
-          >
-            Clear All
-          </button>
+          <button onClick={clear}>Clear All</button>
         </div>
       </form>
     </div>

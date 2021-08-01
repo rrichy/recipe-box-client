@@ -16,6 +16,7 @@ const AllRecipes = () => {
   useEffect(() => {
     const top = box.sort((a, b) => b.likeCount - a.likeCount).slice(0, 5);
     dispatch(topRecipes(top));
+    console.log(box);
   }, [box]);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const AllRecipes = () => {
         }
       >
         {box.map((recipe) => (
-          <RecipeListed key={recipe.title} data={recipe} />
+          <RecipeListed key={recipe._id} data={recipe} />
         ))}
       </div>
     </div>

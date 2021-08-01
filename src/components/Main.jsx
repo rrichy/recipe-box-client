@@ -42,16 +42,15 @@ const Main = () => {
           }}
         >
           {top.map((recipe) => (
-            <Recipe key={recipe.title} data={recipe} />
+            <Recipe key={recipe._id} data={recipe} />
           ))}
         </div>
         <div className="top-recipes__buttons">
           {Array(5)
             .fill()
             .map((_, i) => (
-              <label class="custom-radio">
+              <label key={i} className="custom-radio">
                 <input
-                  key={i}
                   type="radio"
                   name="select"
                   value={i}
