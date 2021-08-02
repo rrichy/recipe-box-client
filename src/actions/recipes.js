@@ -1,14 +1,14 @@
 import * as api from "../api/index";
 import { FETCH_ALL, CREATE, UPDATE_RECIPE, DELETE_RECIPE } from "./actionTypes";
 
-export function getBox() {
+export function getRecipes() {
   return async (dispatch) => {
     try {
-      const { data } = await api.fetchBox();
+      const { data } = await api.fetchRecipes();
 
       dispatch({ type: FETCH_ALL, payload: data });
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 }
@@ -19,7 +19,7 @@ export function postRecipe(recipe) {
       const { data } = await api.postRecipe(recipe);
       dispatch({ type: CREATE, payload: data });
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 }

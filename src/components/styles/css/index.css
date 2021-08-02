@@ -61,26 +61,6 @@ body {
           box-shadow: 0 0 4px 0 #141414;
 }
 
-.instruction-transition-enter {
-  opacity: 0;
-}
-
-.instruction-transition-enter-active {
-  opacity: 1;
-  -webkit-transition: opacity 500ms;
-  transition: opacity 500ms;
-}
-
-.instruction-transition-exit {
-  opacity: 1;
-}
-
-.instruction-transition-exit-active {
-  opacity: 0;
-  -webkit-transition: 500ms;
-  transition: 500ms;
-}
-
 @media (max-width: 425px) {
   .main-container {
     height: 100vh;

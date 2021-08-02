@@ -4,9 +4,8 @@ import FileBase from "react-file-base64";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
-import { editRecipe } from "../../actions/form";
-import { changePage } from "../../actions/pages";
-import { getBox, postRecipe, updateRecipe } from "../../actions/box";
+import { postRecipe, updateRecipe } from "../../actions/recipes";
+import { editRecipe, changePage } from "../../actions/utils";
 import "../styles/css/AddRecipe.css";
 
 const AddRecipe = () => {
@@ -19,17 +18,18 @@ const AddRecipe = () => {
     directions: [""],
   });
 
-  const currentId = useSelector((state) => state.currentId);
+  const currentId = useSelector((state) => state.utils.id);
   const recipe =
-    useSelector((state) => state.box.find((r) => r._id === currentId)) || null;
+    useSelector((state) => state.recipes.find((r) => r._id === currentId)) ||
+    null;
 
-  const page = useSelector((state) => state.page);
+  const page = useSelector((state) => state.utils.currentPage);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (recipe) editData(recipe);
-  }, [currentId]);
+  }, [currentId, recipe]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

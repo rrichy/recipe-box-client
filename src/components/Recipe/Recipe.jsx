@@ -1,11 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp as activeThumb } from "@fortawesome/free-solid-svg-icons";
+// import { faThumbsUp as activeThumb } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp as inactiveThumb } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch } from "react-redux";
 
-import { updateTooltipDesc } from "../../actions/tooltip";
-import { showInstruction, updateInstruction } from "../../actions/instruction";
+import {
+  updateTooltipDesc,
+  showInstruction,
+  updateInstruction,
+} from "../../actions/utils";
 import "../styles/css/Recipe.css";
 import defaultImg from "../../images/default.jpg";
 
