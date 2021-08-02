@@ -11,14 +11,17 @@ import {
 //   faDotCircle as faHoverDotCircle,
 // } from "@fortawesome/free-regular-svg-icons";
 
-import { changePage } from "../actions/pages";
+import {
+  changePage,
+  hideInstruction,
+  emptyInstruction,
+} from "../actions/utils";
 import { Recipe } from "./Recipe/Recipe";
 import "./styles/css/Main.css";
-import { hideInstruction, emptyInstruction } from "../actions/instruction";
 
 const Main = () => {
-  const top = useSelector((state) => state.top);
-  const page = useSelector((state) => state.page);
+  const top = useSelector((state) => state.utils.topRecipes);
+  const page = useSelector((state) => state.utils.currentPage);
   const [currentRecipe, nextRecipe] = useState(0);
   const dispatch = useDispatch();
 
