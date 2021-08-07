@@ -4,6 +4,7 @@ import FileBase from "react-file-base64";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
+import Loading from "./Loading";
 import { postRecipe, updateRecipe } from "../../actions/recipes";
 import { editRecipe, changePage } from "../../actions/utils";
 import "../styles/css/AddRecipe.css";
@@ -18,6 +19,7 @@ const AddRecipe = () => {
     directions: [""],
   });
 
+  const status = useSelector((state) => state.status);
   const currentId = useSelector((state) => state.utils.id);
   const recipe =
     useSelector((state) => state.recipes.find((r) => r._id === currentId)) ||
@@ -177,6 +179,8 @@ const AddRecipe = () => {
           <button type="submit">Submit</button>
           <button onClick={clear}>Clear All</button>
         </div>
+        {/* <Loading /> */}
+        {status === "LOADING" && <Loading />}
       </form>
     </div>
   );

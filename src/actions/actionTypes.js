@@ -3,6 +3,9 @@ export const FETCH_ALL = "FETCH_ALL";
 export const CREATE = "CREATE";
 export const UPDATE_RECIPE = "UPDATE_RECIPE";
 export const DELETE_RECIPE = "DELETE_RECIPE";
+// async status
+export const LOADING = "LOADING";
+export const SUCCESS = "SUCCESS";
 
 // actions to prevent stuttering while rendering
 export const SHOW_INSTRUCTION = "SHOW_INSTRUCTION";

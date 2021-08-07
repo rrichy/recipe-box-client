@@ -1,0 +1,102 @@
+#loading-icon {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.spinner-dot {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  transform-box: fill-box;
+}
+
+.spinner-dot--blue {
+  fill: #26547cff;
+}
+
+.spinner-dot--green {
+  fill: #00a896ff;
+}
+
+.spinner-dot:nth-of-type(1) {
+  -webkit-animation: growshrink 3s infinite;
+          animation: growshrink 3s infinite;
+}
+
+.spinner-dot:nth-of-type(2) {
+  -webkit-animation: growshrink 3s infinite 0.375s;
+          animation: growshrink 3s infinite 0.375s;
+}
+
+.spinner-dot:nth-of-type(3) {
+  -webkit-animation: growshrink 3s infinite 0.75s;
+          animation: growshrink 3s infinite 0.75s;
+}
+
+.spinner-dot:nth-of-type(4) {
+  -webkit-animation: growshrink 3s infinite 1.125s;
+          animation: growshrink 3s infinite 1.125s;
+}
+
+.spinner-dot:nth-of-type(5) {
+  -webkit-animation: growshrink 3s infinite 1.5s;
+          animation: growshrink 3s infinite 1.5s;
+}
+
+.spinner-dot:nth-of-type(6) {
+  -webkit-animation: growshrink 3s infinite 1.875s;
+          animation: growshrink 3s infinite 1.875s;
+}
+
+.spinner-dot:nth-of-type(7) {
+  -webkit-animation: growshrink 3s infinite 2.25s;
+          animation: growshrink 3s infinite 2.25s;
+}
+
+.spinner-dot:nth-of-type(8) {
+  -webkit-animation: growshrink 3s infinite 2.625s;
+          animation: growshrink 3s infinite 2.625s;
+}
+
+@-webkit-keyframes growshrink {
+  0% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  25% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  50% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  100% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+}
+
+@keyframes growshrink {
+  0% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  25% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  50% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  100% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+}
+/*# sourceMappingURL=LoadingIcon.css.map */
