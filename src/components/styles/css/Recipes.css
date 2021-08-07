@@ -1,0 +1,116 @@
+#recipe-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: calc(250px + 2 * 3rem);
+  position: relative;
+}
+
+#slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+#slider-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+#slider-radio {
+  margin: 1rem;
+}
+
+#recipe-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#recipe-buttons button {
+  border: none;
+  background: none;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 0 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.fa-chevron-left {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.fa-chevron-left.fa-chevron-left--opposite {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* $usafa-blue: #26547cff;
+$persian-green: #00a896ff;
+$mountain-meadow: #02c39aff;
+$ultra-red: #ff6978ff;
+$white: #fcfcfcff; */
+#other-recipes {
+  background-color: #26547cff;
+  position: absolute;
+  height: 100%;
+  overflow-y: auto;
+  left: 92%;
+  bottom: 0%;
+  -webkit-animation: showRecipes 0.3s;
+          animation: showRecipes 0.3s;
+}
+
+@-webkit-keyframes showRecipes {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+    left: 65%;
+    bottom: -43%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes showRecipes {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+    left: 65%;
+    bottom: -43%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=Recipes.css.map */

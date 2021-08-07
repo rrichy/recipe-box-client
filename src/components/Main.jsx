@@ -16,6 +16,7 @@ import {
   hideInstruction,
   emptyInstruction,
 } from "../actions/utils";
+import LoadingIcon from "./LoadingIcon";
 import { Recipe } from "./Recipe/Recipe";
 import "./styles/css/Main.css";
 
@@ -24,6 +25,26 @@ const Main = () => {
   const page = useSelector((state) => state.utils.currentPage);
   const [currentRecipe, nextRecipe] = useState(0);
   const dispatch = useDispatch();
+
+  if (!top.length) {
+    return (
+      <div className={"main" + (page === "main" ? " main--active" : "")}>
+        <a
+          href="#"
+          onClick={() => {
+            dispatch(changePage("main"));
+            setTimeout(() => dispatch(emptyInstruction()), 600);
+            dispatch(hideInstruction());
+          }}
+        >
+          Recipe Box
+        </a>
+        <div className="top-recipes">
+          <LoadingIcon classmod={"blue"} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={"main" + (page === "main" ? " main--active" : "")}>
